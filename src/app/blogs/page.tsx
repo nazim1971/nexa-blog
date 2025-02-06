@@ -1,6 +1,7 @@
 import BlogCard from '@/components/ui/BlogCard';
 import { Blog } from '@/types';
 import { Metadata } from 'next';
+import Link from 'next/link';
 import React from 'react';
 
 export const metadata: Metadata = {
@@ -30,7 +31,9 @@ const BlogPage = async() => {
 
       <div className=' grid grid-cols-3 gap-5 my-5' >
         {
-            blogs.map((i: Blog )=> <BlogCard blog={i} key={i.id} /> )
+            blogs.map((i: Blog )=> <Link key={i.id} href={`/blogs/${i.id}`}>
+            <BlogCard blog={i}/>
+            </Link> )
         }
       </div>
         </div>
